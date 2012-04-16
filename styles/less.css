@@ -60,6 +60,7 @@ a img {border: 0;}
 
 body {
     font: 18px/24px "Times New Roman", Times, serif;
+    line-height: 22px;
 }
 
 .small, small {
