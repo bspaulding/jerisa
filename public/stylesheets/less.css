@@ -41,21 +41,25 @@ a img {border: 0;}
     font-size: 72px;
     line-height: 84px;
     letter-spacing: -1px;
+    font-weight: normal;
 }
 
 .large, h2 {
     font-size: 48px;
     line-height: 63px;
+    font-weight: normal;
 }
 
 .bigger, h3 {
     font-size: 29px;
     line-height: 36px;
+    font-weight: normal;
 }
 
 .big, h4 {
     font-size: 25px;
     line-height: 30px;
+    font-weight: normal;
 }
 
 body {
