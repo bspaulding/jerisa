@@ -34,9 +34,10 @@
 
 html {
   .background_gradient(bottom, @light_purple 11%, @dark_purple 56%);
+  min-height: 100%;
 }
 
-body { }
+body { padding-top: 126px; }
 
 #wrapper {
   margin: 0px auto;
@@ -68,6 +69,12 @@ body { }
   background-position: 0px -250px;
   background-size: 100%;
   background-repeat: no-repeat;
+}
+
+#wrapper>header>h2 {
+  position: absolute; top: 168px; right: 42px; z-index: 3;
+  color: @gold;
+  text-shadow: 1px 1px 2px @dark_purple;
 }
 
 #wrapper>header>img {
