@@ -1,7 +1,7 @@
 @light_purple: rgb(35,18,77); /* rgb(97, 73, 108); */
 @dark_purple: rgb(63,45,108); /* rgb(107, 83, 118) */
 
-@gold: #BFB030;
+@gold: gold;/*#BFB030;*/
 @dark_gold: darken(@gold, 3%);
 
 .background_gradient(@position: bottom, @start: white 0%, @end: black 100%) {
@@ -20,17 +20,26 @@
   background-image:     -ms-linear-gradient(@position, @stop1, @stop2, @stop3);
 }
 
-html {
-  .background_gradient(bottom, @light_purple 11%, @dark_purple 56%);
-  height: 100%;
-  min-height: 100%;
+#baseline_grid {
+  position: fixed; top: 0px; left: 0px; right: 0px; bottom: 0px;
+  background-image: url('../images/gridbg_21px.gif');
+  z-index: 100;
+  opacity: 0.5;
 }
 
-body { min-height: 100%; height: 100%; }
+#baseline_grid_toggle {
+  position: fixed; top: 10px; right: 10px;
+  z-index: 101;
+}
+
+html {
+  .background_gradient(bottom, @light_purple 11%, @dark_purple 56%);
+}
+
+body { }
 
 #wrapper {
   margin: 0px auto;
-  min-height: 100%; height: 100%;
   padding-top: 0px;
   padding-bottom: 0px;
   position: relative;
@@ -39,17 +48,26 @@ body { min-height: 100%; height: 100%; }
   font-family: "Helvetiva Neue", "Helvetica", "Arial", sans-serif;
   font-size: 10px;
 
-  .background_gradient(bottom, @light_purple 11%, @dark_purple 56%);
+  background: white;
   -webkit-box-shadow: 0px 0px 30px rgb(0, 0, 0);
 }
 
 #wrapper>header>h1 {
   position: relative;
+  left: -48px;
   text-align: left;
   color: @gold;
-  padding: 36px 0px;
+  padding: 84px 48px;
+  width: 100%;
   z-index: 2;
   text-shadow: 1px 1px 2px @dark_purple;
+  font-size: 84px;
+  font-weight: normal;
+
+  background-image: url('../images/engagement_photos/aly1.jpg');
+  background-position: 0px -250px;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 #wrapper>header>img {
@@ -60,15 +78,16 @@ body { min-height: 100%; height: 100%; }
 
 #bg_wrap_outer {
   position: absolute;
-  top: 174px;
+  top: 273px;
   left: 0;
   width: 100%;
   /* background: @gold; */
   .background_gradient_three(bottom, @gold 0%, darken(@gold, 10%) 50%, @gold 100%);
-  height: 52px;
+  height: 43px;
   width: 100%;
   z-index: 0;
-  margin: 10px 0px;
+  margin: 0px;
+  padding: 10px 0px;
 }
 
 #bg_wrap_inner {
@@ -76,51 +95,43 @@ body { min-height: 100%; height: 100%; }
   .background_gradient_three(bottom, @dark_gold 0%, @gold 50%, @dark_gold 100%);
   border-top: 1px dotted @dark_purple;
   border-bottom: 1px dotted @dark_purple;
-  height: 30px;
-  margin-top: 10px;
+  height: 42px;
 }
 
-article {
-  padding: 0px 48px;
-  position: absolute;
-  top: 216px; left: 0px; bottom: 0px; right: 0px;
-  z-index: 2;
-  background: rgba(255, 255, 255, 0.63);
+article {}
 
-  overflow-y: scroll;
-}
-
-p { font-size: 1.8em; line-height: 2.2em; padding: 18px 0px; color: @dark_purple }
+p { font-size: 18px; line-height: 42px; margin: 0px; padding: 18px 0px; color: darken(@dark_purple, 10%); }
 
 /* Navigation */
 
 nav {
-  position: absolute;
-  top: 156px; left: -2px;
+  /*position: absolute;
+  top: 168px; left: -2px;*/
+  position: relative; left: -49px;
   z-index: 1;
   width: 995px;
-  height: 60px;
-  /*background: @gold;*/
-  .background_gradient_three(bottom, @gold 0%, darken(@gold, 10%) 50%, @gold 100%);
+  height: 43px;
+  background: @gold;
   -webkit-box-shadow: 0px 3px 2px black;
+  padding: 10px 0px;
 }
 
 nav ul {
   list-style-type: none;
   /*background: @gold;*/
-  .background_gradient_three(bottom, @dark_gold 0%, @gold 50%, @dark_gold 100%);
+  .background_gradient_three(top, @dark_gold 0%, @gold 20%, @dark_gold 80%);
   display: block;
   padding: 0 48px;
   text-align: center;
   height: 39px;
-  margin-top: 10px;
+  /*margin-top: 10.5px;*/
   border-top: 1px dotted @dark_purple;
   border-bottom: 1px dotted @dark_purple;
 }
 
 nav ul li {
   display: inline;
-  border-right: 1px dotted @dark_purple;
+  /*border-right: 1px dotted @dark_purple;*/
   padding: 0px 10px;
 }
 
@@ -132,10 +143,18 @@ nav ul li a:visited {
   color: @dark_purple;
   font-size: 1.8em;
   line-height: 2.2em;
+  padding: 5px 10px;
+  border-radius: 21px;
+
+  -webkit-transition: background 0.3s ease;
 }
 
 nav ul li a:hover,
 nav ul li a:active {
   /*text-decoration: underline;*/
-  text-shadow: 0px 0px 1px @light_purple;
+  /*text-shadow: 0px 0px 1px @light_purple;*/
+  text-shadow: 0px -1px 1px @light_purple;
+  background: @dark_purple;
+  color: @gold;
+  -webkit-box-shadow: 1px 0px 1px @light_purple;
 }
