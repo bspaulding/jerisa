@@ -2,4 +2,5 @@
 .DS_Store
 tmp
 vendor/bundle
+db/schema.rb
 log
