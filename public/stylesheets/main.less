@@ -252,16 +252,19 @@ footer {
   text-shadow: 0px -1px 0px lighten(@light_purple, 22%);
 
   /*background: rgba(0, 0, 0, 0.4);*/
-  .background_gradient(top, darken(@dark_purple, 20%) 0%, rgba(150,150,150, 0.4));
+  .background_gradient(top, darken(@dark_purple, 20%) 0%, rgb(115.2, 108.0, 133.2)); /*rgba(150,150,150, 0.4));*/
   border-left: 1px solid rgba(255,255,255,0.6);
   border-right: 1px solid rgba(255,255,255,0.6);
+
+  -webkit-transition: padding 0.5s ease;
+  -moz-transition: padding 0.5s ease;
 }
 
-/*footer:hover {
+footer:hover {
   padding-top: 22px;
   padding-bottom: 22px;
 }
-*/
+
 footer a:link {
   line-height: 22px;
   padding: 11px 0px;
