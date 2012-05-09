@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8"/>
-  <title>jerisa</title>
+  <title>Justin and Cherisa | Home</title>
 
   <!-- Less Framework -->
   <!--[if lt IE 9]>
@@ -26,11 +26,13 @@
     document.addEventListener('DOMContentLoaded', function() {
       var toggle = document.querySelector('#baseline_grid_toggle');
       toggle.addEventListener('click', function() {
-        var grid = document.querySelector('#baseline_grid');
-        if ( grid.style.display === 'none' ) {
-           grid.style.display = 'block';
+        var style = "background-image: url('../images/gridbg_22px.gif'); background-repeat: repeat; background-position: top left";
+        if ( document.body.getAttribute("style") === style ) {
+          document.body.removeAttribute("style");
+          document.querySelector('article').removeAttribute("style");
         } else {
-          grid.style.display = 'none';
+          document.body.setAttribute("style", style);
+          document.querySelector('article').setAttribute("style", style);
         }
       });
     });
@@ -70,17 +72,34 @@
       </nav>
     </header>
     <article>
+      <nav style="display:none;">
+        <ul>
+          <li><a href="#">Article Nav Item</a></li>
+          <li><a href="#">Article Nav Item</a></li>
+          <li><a href="#">Article Nav Item</a></li>
+          <li><a href="#">Article Nav Item</a></li>
+        </ul>
+      </nav>
+      <h1>Heading 1</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       <img class="wide right" src="/images/engagement_photos/wide.jpg"/>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <h1>Heading 1</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       <img class="tall left" src="/images/engagement_photos/tall.jpg"/>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </article>
     <footer class="tk-ubuntu-mono">
-      <a href="http://www.motingo.com/">Motingo Designs</a>
+      <a href="http://www.motingo.com/">Designed by Bradley J. Spaulding</a>
     </footer>
+    <div class="modal-dialog">
+      <h1>Dialog Title</h1>
+      <label>
+        Label
+        <input type="text">
+      </label>
+    </div>
   </div>
 </body>
 </html>
