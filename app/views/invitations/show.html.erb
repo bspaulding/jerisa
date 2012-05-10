@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @invitation.name %>
+</p>
+
+<p>
+  <b>Responded:</b>
+  <%= @invitation.responded %>
+</p>
+
+<p>
+  <b>Attending:</b>
+  <%= @invitation.attending %>
+</p>
+
+<p>
+  <b>Total guests allowed:</b>
+  <%= @invitation.total_guests_allowed %>
+</p>
+
+<p>
+  <b>Total guests attending:</b>
+  <%= @invitation.total_guests_attending %>
+</p>
+
+
+<%= link_to 'Edit', edit_invitation_path(@invitation) %> |
+<%= link_to 'Back', invitations_path %>

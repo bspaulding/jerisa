@@ -1,0 +1,37 @@
+<%= form_for(@invitation) do |f| %>
+  <% if @invitation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invitation.errors.count, "error") %> prohibited this invitation from being saved:</h2>
+
+      <ul>
+      <% @invitation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :responded %><br />
+    <%= f.check_box :responded %>
+  </div>
+  <div class="field">
+    <%= f.label :attending %><br />
+    <%= f.check_box :attending %>
+  </div>
+  <div class="field">
+    <%= f.label :total_guests_allowed %><br />
+    <%= f.number_field :total_guests_allowed %>
+  </div>
+  <div class="field">
+    <%= f.label :total_guests_attending %><br />
+    <%= f.number_field :total_guests_attending %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

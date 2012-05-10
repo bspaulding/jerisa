@@ -1,5 +1,9 @@
 Jerisa::Application.routes.draw do
   root :to => 'pages#our_story'
+  resources :invitations
+
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
 
   resources :guestbook_entries
 

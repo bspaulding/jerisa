@@ -1,0 +1,31 @@
+<h1>Invitations</h1>
+<%= link_to 'New Invitation', new_invitation_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Responded</th>
+      <th>Attending</th>
+      <th>Total guests allowed</th>
+      <th>Total guests attending</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @invitations.each do |invitation| %>
+    <tr>
+      <td><%= link_to invitation.name, invitation %></td>
+      <td><%= t(invitation.responded.to_s) %></td>
+      <td><%= t(invitation.attending.to_s) %></td>
+      <td><%= invitation.total_guests_allowed %></td>
+      <td><%= invitation.total_guests_attending %></td>
+      <td>
+        <ul>
+          <li><%= link_to 'Edit', edit_invitation_path(invitation) %></li>
+          <li><%= link_to 'Destroy', invitation, confirm: 'Are you sure?', method: :delete %></li>
+        </ul>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

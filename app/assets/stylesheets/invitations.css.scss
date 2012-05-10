@@ -1,0 +1,21 @@
+// Place all the styles related to the Invitations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th {
+  text-align: left;
+  background: #666;
+  color: #EFEFEF;
+}
+
+table tbody tr:nth-child(odd) {
+  background: #CCC;
+}
+
+table th,
+table td { border: 1px solid #EDEDED; padding: 9px; }
