@@ -70,7 +70,7 @@ img.left  { float: left;  margin-right: 21px; }
 img.right { float: right; margin-left:  21px; }
 
 img.wide { height: 328px; } /* 394 - 2 = 396 = 22 * 15 */
-img.tall { height: 394px; } /* 394 - 2 = 396 = 22 * 18 */
+img.tall { height: 412px; } /* 394 - 2 = 396 = 22 * 18 */
 
 #wrapper {
   margin: 0px auto;
@@ -156,6 +156,7 @@ article {
 
   background: rgba(255,255,255,0.6);
   .background_gradient(top left, darken(rgba(255,255,255,0.6), 20%) 30%, rgba(255,255,255,0.6));
+  background-image: url('../images/grain2_tileable.png');
 }
 
 p { font-size: 18px; line-height: 44px; margin: 0px; padding: 22px 0px; color: darken(@dark_purple, 10%); }
@@ -252,9 +253,14 @@ footer {
   text-shadow: 0px -1px 0px lighten(@light_purple, 22%);
 
   /*background: rgba(0, 0, 0, 0.4);*/
-  .background_gradient(top, darken(@dark_purple, 20%) 0%, rgb(115.2, 108.0, 133.2)); /*rgba(150,150,150, 0.4));*/
+  /*.background_gradient(top, darken(@dark_purple, 20%) 0%, rgb(115.2, 108.0, 133.2)); /*rgba(150,150,150, 0.4));*/
   border-left: 1px solid rgba(255,255,255,0.6);
   border-right: 1px solid rgba(255,255,255,0.6);
+
+  background: @dark_purple;
+  -webkit-box-shadow: 0px 0px 11px black inset;
+  -moz-box-shadow: 0px 0px 11px black inset;
+  box-shadow: 0px 0px 11px black inset;
 
   -webkit-transition: padding 0.5s ease;
   -moz-transition: padding 0.5s ease;
