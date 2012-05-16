@@ -24,6 +24,10 @@
     <%= f.check_box :attending %>
   </div>
   <div class="field">
+    <%= f.label :food_order_id %><br/>
+    <%= f.select :food_order_id, FoodOrder.order(:name).map {|food_order| [food_order.name, food_order.id] } %>
+  </div>
+  <div class="field">
     <%= f.label :total_guests_allowed %><br />
     <%= f.number_field :total_guests_allowed %>
   </div>
