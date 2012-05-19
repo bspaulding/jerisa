@@ -62,11 +62,6 @@ a img {border: 0;}
     font-weight: normal;
 }
 
-body {
-    font: 18px/24px "Times New Roman", Times, serif;
-    line-height: 22px;
-}
-
 .small, small {
     font-size: 13px;
     line-height: 18px;
@@ -91,65 +86,150 @@ cols    1     2      3      4      5      6      7      8      9      10
 px      68    160    252    344    436    528    620    712    804    896    */
 
 #wrapper {
-    width: 896px;
-    padding: 72px 48px 84px;
+    width: 992px;
+    padding: 72px 0px 84px;
     background: rgb(232,232,232);
     color: rgb(60,60,60);
     -webkit-text-size-adjust: 100%; /* Stops Mobile Safari from auto-adjusting font-sizes */
 }
 
+#wrapper>header>h1 {
+  font-size: 84px; padding: 88px 48px;
+  text-align: left;
+  width: auto;
+  z-index: 2;
+  font-weight: normal;
 
+  background-image: url('../images/engagement_photos/aly1.jpg');
+  background-position: 0px -250px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
 
-    /*Tablet Layout: 768px.
-      Gutters: 24px.
-      Outer margins: 28px.
-      Inherits styles from: Default Layout.
+header>nav { width: auto; float: none; text-align: center; height: 46px; padding: 10px 0px; }
+header>nav ul { padding: 0px 48px; height: 40px; }
+header>nav ul li { display: inline; margin-right: 22px; }
+header>nav ul li:last-child { margin-right: 0px; }
+header>nav ul li a,
+header>nav ul li a:visited { font-size: 1.8em; padding: 5px 10px; }
+
+article { padding: 0px 48px; width: auto; }
+p { font-size: 18px; line-height: 44px; margin: 0px; padding: 22px 0px; }
+
+img {
+  padding: 0px;
+  border: 1px solid;
+  margin: 33px 0px 0px 0px; /* 33px = 22px line-height + 11px to baseline */
+}
+img.left  { float: left;  margin-right: 21px; }
+img.right { float: right; margin-left:  21px; }
+
+img.wide { height: 328px; } /* 394 - 2 = 396 = 22 * 15 */
+img.tall { height: 412px; } /* 394 - 2 = 396 = 22 * 18 */
+
+footer {
+  font-family: "ubuntu-mono", sans-serif;
+
+  position: absolute; left: 0px; bottom: 0px;
+  width: 894px;
+  font-size: 14px;
+  line-height: 22px;
+  padding: 11px 48px;
+  text-align: center;
+  font-weight: normal;
+
+  border-left: 1px solid rgba(255,255,255,0.6);
+  border-right: 1px solid rgba(255,255,255,0.6);
+
+  -webkit-box-shadow: 0px 0px 11px black inset;
+  -moz-box-shadow: 0px 0px 11px black inset;
+  box-shadow: 0px 0px 11px black inset;
+
+  -webkit-transition: padding 0.5s ease;
+  -moz-transition: padding 0.5s ease;
+}
+
+/* Tablet Layout: 768px.
+   Gutters: 24px.
+   Outer margins: 28px.
+   Inherits styles from: Default Layout.
 -----------------------------------------------------------------
 cols    1     2      3      4      5      6      7      8
 px      68    160    252    344    436    528    620    712    */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  #wrapper {
+    width: 768px;
+    padding: 48px 0px 60px;
+  }
 
-    body {
-        width: 712px;
-        padding: 48px 28px 60px;
-        }
+  #wrapper>header>h1 { padding: 66px 28px; font-size: 72px; }
+  header>nav { height: 40px; padding: 4px 0px 0px 0px; }
+  header>nav ul { padding: 0px 28px; height: 34px; }
+  header>nav ul li { margin-right: 14px; }
+  header>nav ul li a { font-size: 1.6em; padding: 5px 5px; }
+  article { padding: 0px 28px; }
+  footer { width: 670px; }
 }
 
 
 
-    /*Mobile Layout: 320px.
-      Gutters: 24px.
-      Outer margins: 34px.
-      Inherits styles from: Default Layout.
+/* Mobile Layout: 320px.
+   Gutters: 24px.
+   Outer margins: 34px.
+   Inherits styles from: Default Layout.
 ---------------------------------------------
 cols    1     2      3
 px      68    160    252    */
 
 @media only screen and (max-width: 767px) {
+  #wrapper {
+    width: 320px;
+    padding: 48px 0px 60px;
+  }
 
-    body {
-        width: 252px;
-        padding: 48px 34px 60px;
-        }
+  /* Mobile Nav */
+  #wrapper>header>nav { overflow: hidden; overflow-x: scroll; -webkit-overflow-scrolling: touch; }
+  #wrapper>header>nav ul { width: 1120px; padding: 0px; }
+  #wrapper>header>nav ul li {
+    float: left;
+    width: 160px;
+    text-align: center;
+    margin-right: 0px;
+  }
 
+  /* Mobile Images */
+  img.left, img.right { float: none; margin: 0 auto; display: block; }
+  img.wide,
+  img.tall { height: auto; max-width: 100%; }
+  .huge, h1 { line-height: 44px; }
+  #wrapper>header>h1 { padding: 11px 34px; font-size: 36px; background-position: 0px -50px; }
+  article { padding-left: 34px; padding-right: 34px; }
+  p { font-size: 14px; padding: 11px 0px; }
+  footer { width: 222px; font-size: 12px; }
 }
 
 
 
-    /*Wide Mobile Layout: 480px.
-      Gutters: 24px.
-      Outer margins: 22px.
-      Inherits styles from: Default Layout, Mobile Layout.
+/* Wide Mobile Layout: 480px.
+   Gutters: 24px.
+   Outer margins: 22px.
+   Inherits styles from: Default Layout, Mobile Layout.
 ------------------------------------------------------------
 cols    1     2      3      4      5
 px      68    160    252    344    436    */
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
+  #wrapper {
+    width: 480px;
+    padding: 36px 0px 48px;
+  }
 
-    body {
-        width: 436px;
-        padding: 36px 22px 48px;
-        }
-
-}  background-image: -webkit-linear-gradient(rgb(97, 73, 108), rgb(107, 83, 118));
+  #wrapper>header>h1 { padding: 11px 22px; font-size: 64px; background-position: 0px -50px; }
+  article { padding-left: 22px; padding-right: 22px; }
+  article>h1 { margin: 11px inherit; }
+  p { font-size: 16px; padding: 11px 0px; }
+  img.wide { height: 262px; }
+  img.tall { height: 416px; }
+  footer { width: 382px; font-size: 12px; }
+}
