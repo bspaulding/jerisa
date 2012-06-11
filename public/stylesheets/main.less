@@ -63,6 +63,42 @@ a:hover, a:active { color: inherit; }
 a:link, a:visited { text-decoration: none; }
 a:hover, a:active { text-decoration: underline; }
 
+input[type="button"],
+input[type="submit"],
+button,
+a.button {
+  display: block;
+  float: left;
+  background: @dark_purple;
+
+  .background_gradient(bottom, @light_purple 11%, @dark_purple 56%);
+
+  color: @gold;
+  padding: 11px;
+  font-size: 16px;
+  line-height: 22px;
+  font-family: "coquette",fantasy;
+  text-shadow: 0px -1px 0px @light_purple;
+
+  .box_shadow(0px 1px 2px black);
+
+  border: 1px solid @light_purple;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+input[type="button"]:hover,
+input[type="submit"]:hover,
+button:hover,
+a.button:hover {
+  cursor: pointer;
+  text-decoration: none;
+  background: lighten(@dark_purple, 7%);
+  .background_gradient(bottom, lighten(@dark_purple, 7%) 11%, lighten(@light_purple, 7%) 56%);
+  text-shadow: 0px -1px 0px @light_purple, 0px 0px 2px @light_purple;
+}
+
 img { .box_shadow(0px 1px 2px @dark_purple); }
 
 #wrapper {
@@ -118,6 +154,7 @@ article>h4, article>h5, article>h6 {
   color: @dark_purple;
   font-weight: bold;
   /*text-shadow: 0px -1px 2px rgb(220,220,220)/*, 0px 1px 1px lighten(@light_purple, 50%);*/
+  text-shadow: 0px 1px 0px lighten(@light_purple, 60%);
 }
 
 article>h2 { font-size: 24px; }

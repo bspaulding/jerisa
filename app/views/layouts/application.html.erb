@@ -1,14 +1,89 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Jerisa</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+  <meta charset="utf-8"/>
+  <title>Justin and Cherisa | Home</title>
+
+  <!-- Less Framework -->
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" media="all" href="stylesheets/less.css"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <!-- Adding "maximum-scale=1" fixes the Mobile Safari auto-zoom bug: http://filamentgroup.com/examples/iosScaleBug/ -->
+
+  <link rel="stylesheet/less" type="text/css" href="stylesheets/main.less"/>
+
+  <!-- TypeKit -->
+  <script type="text/javascript" src="http://use.typekit.com/att7tvc.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
+  <!-- Less -->
+  <script src="javascripts/less-1.3.0.min.js"></script>
+
+  <!-- Custom -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var toggle = document.querySelector('#baseline_grid_toggle');
+      toggle.addEventListener('click', function() {
+        var style = "background-image: url('../images/gridbg_22px.gif'); background-repeat: repeat; background-position: top left";
+        if ( document.body.getAttribute("style") === style ) {
+          document.body.removeAttribute("style");
+          document.querySelector('article').removeAttribute("style");
+        } else {
+          document.body.setAttribute("style", style);
+          document.querySelector('article').setAttribute("style", style);
+        }
+      });
+    });
+  </script>
+
+  <!-- Google Analytics -->
+  <!--<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-31437778-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>-->
 </head>
-<body>
-
-<%= yield %>
-
+<body lang="en">
+  <input type="button" value="Toggle Grid" id="baseline_grid_toggle" style="display:none;"/>
+  <div id="baseline_grid" style="display:none;"></div>
+  <div id="bg_wrap_outer"><div id="bg_wrap_inner"></div></div>
+  <div id="wrapper">
+    <header>
+      <h1 class="tk-voluta-script-pro">Justin and Cherisa</h1>
+      <!-- <img src="images/headers/header1.png"/> -->
+      <nav>
+        <ul>
+          <li><a class="tk-coquette" href="/our_story">Our Story</a></li>
+          <!--<li><a class="tk-coquette" href="#">Bride &amp; Groom</a></li>-->
+          <li><a class="tk-coquette" href="/registry">Registry</a></li>
+          <li><a class="tk-coquette" href="/contact_us">Contact Us</a></li>
+          <li><a class="tk-coquette" href="/guestbook">Guestbook</a></li>
+          <li><a class="tk-coquette" href="/ceremony">Ceremony</a></li>
+          <li><a class="tk-coquette" href="/reception">Reception</a></li>
+          <li><a class="tk-coquette" href="/accomodations">Accomodations</a></li>
+        </ul>
+      </nav>
+    </header>
+    <article>
+      <%= yield %>
+    </article>
+    <footer class="tk-ubuntu-mono">
+      <a href="http://www.motingo.com/">Designed by Bradley J. Spaulding</a>
+    </footer>
+    <div class="modal-dialog">
+      <h1>Dialog Title</h1>
+      <label>
+        Label
+        <input type="text">
+      </label>
+    </div>
+  </div>
 </body>
 </html>
