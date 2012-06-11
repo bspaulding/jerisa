@@ -1,8 +1,7 @@
 <%= form_for(@guestbook_entry) do |f| %>
   <% if @guestbook_entry.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@guestbook_entry.errors.count, "error") %> prohibited this guestbook_entry from being saved:</h2>
-
+      <h4><%= pluralize(@guestbook_entry.errors.count, "error") %> prohibited this <%= GuestbookEntry.model_name.human %> from being saved:</h4>
       <ul>
       <% @guestbook_entry.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -18,6 +17,9 @@
   <div class="field">
     <%= f.label :body %><br />
     <%= f.text_area :body %>
+  </div>
+  <div class="field">
+    <%= recaptcha_tags %>
   </div>
   <div class="actions">
     <%= f.submit "Sign the Guestbook" %>

@@ -1,4 +1,6 @@
 Jerisa::Application.routes.draw do
+  root :to => 'pages#our_story'
+
   resources :guestbook_entries
 
   match "/guestbook" => 'guestbook_entries#index'

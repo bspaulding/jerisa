@@ -178,7 +178,12 @@ img { .box_shadow(0px 1px 2px @dark_purple); }
   height: 42px;
 }
 
-ul#guestbook_entries li {
+article ul {
+  margin-left: 22px;
+  font-size: 14px;
+}
+
+ul {
   color: @dark_purple;
 }
 
@@ -186,8 +191,8 @@ ul#guestbook_entries li>strong {
   text-shadow: 0px 1px 0px lighten(@light_purple, 60%);
 }
 
-article>h1, article>h2, article>h3,
-article>h4, article>h5, article>h6 {
+h1, h2, h3,
+h4, h5, h6 {
   margin: 0px;
   padding: 22px 0px 0px 0px;
   font-size: 28px;
@@ -198,11 +203,28 @@ article>h4, article>h5, article>h6 {
   text-shadow: 0px 1px 0px lighten(@light_purple, 60%);
 }
 
-article>h2 { font-size: 24px; }
-article>h3 { font-size: 22px; }
-article>h4,
-article>h5,
-article>h6 { font-size: 18px; }
+h2 { font-size: 24px; }
+h3 { font-size: 22px; }
+h4,
+h5,
+h6 { font-size: 18px; }
+
+#error_explanation {
+  margin: 11px 0px; padding: 11px 22px;
+  background: rgba(255,255,255,0.6);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#error_explanation h1,
+#error_explanation h2,
+#error_explanation h3,
+#error_explanation h4,
+#error_explanation h5,
+#error_explanation h6 {
+  margin: 0px; padding: 0px;
+}
 
 article {
   background: rgba(255,255,255,0.6);

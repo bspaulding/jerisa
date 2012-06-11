@@ -43,7 +43,7 @@ class GuestbookEntriesController < ApplicationController
     @guestbook_entry = GuestbookEntry.new(params[:guestbook_entry])
 
     respond_to do |format|
-      if @guestbook_entry.save
+      if verify_recaptcha(:model => @guestbook_entry) && @guestbook_entry.save
         format.html { redirect_to guestbook_entries_path, notice: 'Guestbook entry was successfully created.' }
         format.json { render json: @guestbook_entry, status: :created, location: @guestbook_entry }
       else
@@ -59,7 +59,7 @@ class GuestbookEntriesController < ApplicationController
     @guestbook_entry = GuestbookEntry.find(params[:id])
 
     respond_to do |format|
-      if @guestbook_entry.update_attributes(params[:guestbook_entry])
+      if verify_recaptcha(:model => @guestbook_entry) && @guestbook_entry.update_attributes(params[:guestbook_entry])
         format.html { redirect_to guestbook_entries_path, notice: 'Guestbook entry was successfully updated.' }
         format.json { head :no_content }
       else
