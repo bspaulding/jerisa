@@ -57,6 +57,38 @@ body {
   font-size: 10px;
 }
 
+form .field {
+  margin: 11px 0px;
+}
+
+label {
+  font-size: 18px;
+  font-weight: bold;
+  color: @dark_purple;
+  line-height: 22px;
+  text-shadow: 0px 1px 0px lighten(@light_purple, 60%);
+}
+
+input[type="text"],
+textarea {
+  margin: 11px 0px;
+  padding: 11px;
+  border: 1px solid @light_purple;
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 22px;
+  color: @dark_purple;
+  .box_shadow(0px 0px 11px @dark_purple);
+
+  -webkit-transition: all 0.2s ease;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  .box_shadow(0px 0px 10px @gold);
+}
+
 a:link, a:visited,
 a:hover, a:active { color: inherit; }
 
@@ -74,6 +106,7 @@ a.button {
   .background_gradient(bottom, @light_purple 11%, @dark_purple 56%);
 
   color: @gold;
+  margin: 0px 22px 0px 0px;
   padding: 11px;
   font-size: 16px;
   line-height: 22px;
@@ -143,6 +176,14 @@ img { .box_shadow(0px 1px 2px @dark_purple); }
   border-top: 1px dotted @dark_purple;
   border-bottom: 1px dotted @dark_purple;
   height: 42px;
+}
+
+ul#guestbook_entries li {
+  color: @dark_purple;
+}
+
+ul#guestbook_entries li>strong {
+  text-shadow: 0px 1px 0px lighten(@light_purple, 60%);
 }
 
 article>h1, article>h2, article>h3,

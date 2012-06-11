@@ -77,7 +77,6 @@ img::-moz-selection{background: transparent;}
 body {-webkit-tap-highlight-color: rgb(255,255,158);}
 
 
-
     /*Default Layout: 992px.
       Gutters: 24px.
       Outer margins: 48px.
@@ -106,6 +105,24 @@ px      68    160    252    344    436    528    620    712    804    896    */
   background-size: 100%;
   background-repeat: no-repeat;
 }
+
+ul#guestbook_entries {
+  margin: 22px 0px;
+  width: 100%;
+  list-style-type: none;
+}
+
+ul#guestbook_entries li {
+  margin: 22px 0px;
+  width: 100%;
+  clear:both;
+
+  font-size: 18px;
+  line-height: 22px;
+  font-style: italic;
+}
+
+ul#guestbook_entries li>strong { font-style: normal; }
 
 header>nav { width: auto; float: none; text-align: center; height: 46px; padding: 10px 0px; }
 header>nav ul { padding: 0px 48px; height: 40px; }
