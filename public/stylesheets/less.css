@@ -85,6 +85,13 @@ body {-webkit-tap-highlight-color: rgb(255,255,158);}
 cols    1     2      3      4      5      6      7      8      9      10
 px      68    160    252    344    436    528    620    712    804    896    */
 
+img#rsvp-badge {
+  position: absolute; top: 0px; right: 0px; z-index: 100; margin: 0px; border: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
 #wrapper {
     width: 992px;
     padding: 72px 0px 84px;
@@ -201,6 +208,7 @@ cols    1     2      3
 px      68    160    252    */
 
 @media only screen and (max-width: 767px) {
+  img#rsvp-badge { width: 100px; height: 100px; }
   #wrapper {
     width: 320px;
     padding: 48px 0px 60px;
@@ -243,6 +251,7 @@ px      68    160    252    344    436    */
     padding: 36px 0px 48px;
   }
 
+  img#rsvp-badge { width: 150px; height: 150px; }
   #wrapper>header>h1 { padding: 33px 22px; font-size: 64px; background-position: 0px -50px; }
   article { padding-left: 22px; padding-right: 22px; }
   article>h1 { margin: 11px inherit; }
