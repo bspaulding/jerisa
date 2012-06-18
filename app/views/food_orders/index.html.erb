@@ -1,23 +1,23 @@
-<h1>Food Options</h1>
-<%= link_to 'New Food Option', new_food_order_path %>
+<h1>Listing food_orders</h1>
+
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
 <% @food_orders.each do |food_order| %>
   <tr>
-    <td><%= link_to food_order.name, food_order %></td>
-    <td>
-      <ul>
-        <li><%= link_to 'Edit', edit_food_order_path(food_order) %></li>
-        <li><%= link_to 'Destroy', food_order, confirm: 'Are you sure?', method: :delete %></li>
-      </ul>
-    </td>
+    <td><%= food_order.name %></td>
+    <td><%= link_to 'Show', food_order %></td>
+    <td><%= link_to 'Edit', edit_food_order_path(food_order) %></td>
+    <td><%= link_to 'Destroy', food_order, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
-  </tbody>
 </table>
+
+<br />
+
+<%= link_to 'New Food order', new_food_order_path %>

@@ -16,20 +16,9 @@
 </p>
 
 <p>
-  <b>Food Order:</b>
-  <%= @invitation.food_order.name %>
-</p>
-
-<p>
   <b>Total guests allowed:</b>
-  <%= @invitation.total_guests_allowed %>
+  <%= @invitation.max_attendees %>
 </p>
-
-<p>
-  <b>Total guests attending:</b>
-  <%= @invitation.total_guests_attending %>
-</p>
-
 
 <%= link_to 'Edit', edit_invitation_path(@invitation) %> |
 <%= link_to 'Back', invitations_path %>

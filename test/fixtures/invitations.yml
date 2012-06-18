@@ -1,15 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
+  max_attendees: 1
   responded: false
-  attending: false
-  total_guests_allowed: 1
-  total_guests_attending: 1
 
 two:
-  name: MyString
+  max_attendees: 1
   responded: false
-  attending: false
-  total_guests_allowed: 1
-  total_guests_attending: 1
