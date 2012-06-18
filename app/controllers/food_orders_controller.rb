@@ -1,4 +1,6 @@
 class FoodOrdersController < ApplicationController
+  layout 'admin'
+
   # GET /food_orders
   # GET /food_orders.json
   def index

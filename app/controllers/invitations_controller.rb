@@ -1,4 +1,6 @@
 class InvitationsController < ApplicationController
+  layout 'admin'
+
   # GET /invitations
   # GET /invitations.json
   def index
