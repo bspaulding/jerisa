@@ -132,6 +132,19 @@ a.button:hover {
   text-shadow: 0px -1px 0px @light_purple, 0px 0px 2px @light_purple;
 }
 
+input[type="button"][disabled],
+input[type="submit"][disabled],
+              button[disabled],
+            a.button[disabled],
+input[type="button"][disabled]:hover,
+input[type="submit"][disabled]:hover,
+              button[disabled]:hover,
+            a.button[disabled]:hover {
+  cursor: default;
+  opacity: 0.5;
+  .background_gradient(bottom, @light_purple 11%, @dark_purple 56%);
+}
+
 img { .box_shadow(0px 1px 2px @dark_purple); }
 
 #wrapper {
