@@ -70,23 +70,41 @@ label {
 }
 
 input[type="text"],
-textarea {
+textarea,
+select {
   margin: 11px 0px;
   padding: 11px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   border: 1px solid @light_purple;
   border-radius: 6px;
   font-size: 16px;
   line-height: 22px;
   color: @dark_purple;
   .box_shadow(0px 0px 11px @dark_purple);
+  .background_gradient(bottom, #EFEFEF 0%, white 100%);
 
   -webkit-transition: all 0.2s ease;
+  -webkit-appearance: none;
+}
+
+
+input[type="button"],
+input[type="submit"] { width: auto; }
+
+select {
+  background: white url("../images/select-bg.png") no-repeat right center;
+  -webkit-background-size: 1600px 100%;
 }
 
 input:focus,
-textarea:focus {
+textarea:focus,
+select:focus {
   outline: none;
   .box_shadow(0px 0px 10px @gold);
+  .background_gradient(top, #EFEFEF 0%, white 100%);
 }
 
 a:link, a:visited,
