@@ -131,7 +131,7 @@ ul#guestbook_entries li {
 
 ul#guestbook_entries li>strong { font-style: normal; }
 
-header>nav { width: auto; float: none; text-align: center; height: 46px; padding: 10px 0px; }
+header>nav { width: auto; float: none; text-align: center; height: 46px; padding: 10px 0px; font-family: "coquette", Helvetica, Arial, sans-serif; }
 header>nav ul { padding: 0px 48px; height: 40px; }
 header>nav ul li { display: inline; margin-right: 22px; }
 header>nav ul li:last-child { margin-right: 0px; }
