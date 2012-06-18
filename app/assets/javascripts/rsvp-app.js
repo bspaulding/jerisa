@@ -266,7 +266,9 @@ RSVP.InvitationView = Ember.View.extend({
   },
 
   updateInvitationSuccess: function() {
-
+    var thanksView = RSVP.ThanksView.create({ invitation: this.get('invitation') });
+    this.remove();
+    thanksView.appendTo(RSVP.get('rootElement'));
   }
 });
 
@@ -287,4 +289,8 @@ RSVP.AttendeeView = Ember.View.extend({
 
     return this.get('content').get('food_order_id');
   }.property('content.food_order_id')
+});
+
+RSVP.ThanksView = Ember.View.extend({
+  templateName: "thanks-view"
 });
