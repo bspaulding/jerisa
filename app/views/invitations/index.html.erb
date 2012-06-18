@@ -1,12 +1,14 @@
 <h1>Invitations</h1>
+
 <%= link_to 'New Invitation', new_invitation_path %>
-<table>
+
+<br/>
+
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
       <th>Responded</th>
-      <th>Attending</th>
-      <th>Food Order</th>
       <th>Total guests allowed</th>
       <th>Total guests attending</th>
       <th></th>
@@ -17,10 +19,8 @@
     <tr>
       <td><%= link_to invitation.name, invitation %></td>
       <td><%= t(invitation.responded.to_s) %></td>
-      <td><%= t(invitation.attending.to_s) %></td>
-      <td><%= invitation.food_order.name %></td>
-      <td><%= invitation.total_guests_allowed %></td>
-      <td><%= invitation.total_guests_attending %></td>
+      <td><%= invitation.max_attendees %></td>
+      <td><%= invitation.attendees.count %></td>
       <td>
         <ul>
           <li><%= link_to 'Edit', edit_invitation_path(invitation) %></li>
@@ -30,4 +30,14 @@
     </tr>
   <% end %>
   </tbody>
+  <tfoot>
+    <tr>
+      <th></th>
+      <th>
+        <%= (Invitation.where(:responded => true).count / Invitation.count) * 100.0 %>%
+      </th>
+      <th><%= @invitations.map {|invitation| invitation.attendees.count }.sum %></th>
+      <th><%= Attendee.count %></th>
+    </tr>
+  </tfoot>
 </table>

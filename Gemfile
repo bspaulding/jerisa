@@ -9,6 +9,7 @@ gem 'pg'
 gem 'json'
 gem "recaptcha", :require => "recaptcha/rails"
 gem 'jquery-rails'
+gem "twitter-bootstrap-rails"
 
 # Gems used only for assets and not required
 # in production environments by default.

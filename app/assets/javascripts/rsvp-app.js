@@ -40,6 +40,13 @@ var RSVP = Ember.Application.create({
       this.importObjects(window.food_orders, RSVP.FoodOrder, RSVP.FoodOrdersController);
     }
 
+    if ( window.invitations ) {
+      for ( var i = 0; i < window.invitations.length; i += 1 ) {
+        this.importObjects(window.invitations[i].attendees, RSVP.Attendee, RSVP.InvitationsController.objectAt(i).get('attendees'));
+      }
+    }
+
+
     var lookupInvitationView = RSVP.LookupInvitationView.create();
     lookupInvitationView.appendTo(this.get('rootElement'));
   },
@@ -97,14 +104,20 @@ RSVP.Invitation = Ember.Object.extend({
 
   save: function(callback) {
     $.ajax({
-      url: "/invitations/" + this.get('id').id,
-      type: "POST",
+      url: "/invitations/" + this.get('id') + ".json",
+      type: "PUT",
       processData: false,
       contentType: "application/json",
-      data: JSON.stringify(this.get('asJSON')),
+      headers: {
+        'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      data: JSON.stringify({
+        invitation: this.get('asJSON')
+      }),
       success: function(data) {
         if ( data.errors ) {
-          RSVP.showErrors(data);
+          // RSVP.showErrors(data);
+          console.log(data.errors);
         } else {
           callback(data);
         }
@@ -117,17 +130,23 @@ RSVP.Invitation = Ember.Object.extend({
 
   asJSON: function() {
     return {
-             id: this.get('id'),
-           name: this.get('id'),
+                        id: this.get('id'),
+                      name: this.get('name'),
+                 responded: this.get('responded'),
       attendees_attributes: _.map(this.get('attendees').get('content'), function(a) { return a.get('asJSON'); })
-    }
+    };
   }.property('name', 'attendees.@each.name', 'attendees.@each.food_order_id')
 });
 
 RSVP.Attendee = Ember.Object.extend({
   name: null,
   food_order: null,
-  food_order_id: function() {
+  food_order_id: function(key, value) {
+    if ( arguments.length > 1 ) { // setter
+      var food_order = RSVP.FoodOrdersController.filterProperty('id', value)[0];
+      this.set('food_order', food_order);
+    }
+
     var food_order = this.get('food_order');
     if ( food_order ) {
       return food_order.get('id');
@@ -137,11 +156,18 @@ RSVP.Attendee = Ember.Object.extend({
   }.property('food_order').cacheable(),
 
   isValid: function() {
-    return this.get('name') && this.get('name').length > 0 && this.get('food_order_id') !== null;
+    return !!this.get('isDestroyed') || (this.get('name') && this.get('name').length > 0 && this.get('food_order_id') !== null);
   }.property('food_order_id'),
 
-  asJSON: function() {
+  isDestroyed: null,
 
+  asJSON: function() {
+    return {
+      id: this.get('id'),
+      name: this.get('name'),
+      food_order_id: this.get('food_order_id'),
+      '_destroy': !!this.get('isDestroyed')
+    };
   }.property('')
 });
 
@@ -158,7 +184,7 @@ RSVP.LookupInvitationView = Ember.View.extend({
     if ( invitation ) {
       invitationView = RSVP.InvitationView.create();
       invitationView.set('invitation', invitation);
-      invitationView.set('numAttendees', 1);
+      invitationView.set('numAttendees', invitation.get('attendees').get('length'));
       this.remove();
       invitationView.appendTo(RSVP.get('rootElement'));
     } else {
@@ -181,6 +207,7 @@ RSVP.LookupInvitationView = Ember.View.extend({
 RSVP.InvitationView = Ember.View.extend({
   templateName: 'setup-attendees',
   invitation: null,
+  classNames: ['invitation-view'],
   maxAttendees: function() {
     var invitation = this.get('invitation');
     if ( invitation ) {
@@ -192,17 +219,14 @@ RSVP.InvitationView = Ember.View.extend({
 
   numAttendees: null,
   numAttendeesChanged: function() {
-    console.log('numAttendeesChanged');
     var numAttendees = this.get('numAttendees');
-    if ( !numAttendees ) { return; }
+    if ( 'undefined' === typeof numAttendees || numAttendees == null ) { return; }
 
     var invitation = this.get('invitation');
     var attendees = invitation.get('attendees');
-    var difference = numAttendees - attendees.get('length');
-
-    console.log('numAttendees => ' + numAttendees);
-    console.log('invitation.attendees.length' + attendees.get('length'));
-    console.log('difference => ' + difference);
+    var difference = numAttendees - attendees.filter(function(item, index, self) {
+      return !(!!item.get('isDestroyed'));
+    }).length;
 
     if ( difference > 0 ) {
       // Add new attendees
@@ -214,7 +238,7 @@ RSVP.InvitationView = Ember.View.extend({
     } else if ( difference < 0 ) {
       // Truncate list
       for ( var i = 0; i < (difference * -1); i += 1 ) {
-        attendees.removeAt(attendees.get('length') - 1);
+        attendees.objectAt(attendees.get('length') - 1).set('isDestroyed', true);
       }
     }
   }.observes('numAttendees'),
@@ -236,15 +260,23 @@ RSVP.InvitationView = Ember.View.extend({
   }.property('maxAttendees').cacheable(),
 
   updateInvitation: function() {
-    console.log('[RSVP.InvitationView#updateInvitation]');
-    var self = this;
-    invitation.save(function() { alert('Saved!'); });
+    var invitation = this.get('invitation');
+    invitation.set('responded', true);
+    invitation.save(this.updateInvitationSuccess);
+  },
+
+  updateInvitationSuccess: function() {
+
   }
 });
 
 RSVP.AttendeeView = Ember.View.extend({
   templateName: 'attendee-view',
   classNames: ['attendee-view'],
+  classNameBindings: ['isDestroyed'],
+  isDestroyed: function() {
+    return this.get('content').get('isDestroyed');
+  }.property('content.isDestroyed'),
   food_order_id: function(key, value) {
     console.log('food_order_id');
     if ( arguments.length > 1 ) { // setter

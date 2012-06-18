@@ -26,11 +26,11 @@
 
 {{#if isAttending}}
   <label>Guests</label>
-  {{collection contentBinding="invitation.attendees" itemViewClass="RSVP.AttendeeView"}}
-  <input type="button" value="I'm Done!" {{action "updateInvitation"}} {{bindAttr disabled="invitation.isInvalid"}}/>
+  {{collection contentBinding="invitation.attendees" itemViewClass="RSVP.AttendeeView" tagName="ol"}}
 {{else}}
   <h4>Bummer! We wish you could be there!</h4>
 {{/if}}
+<input type="button" value="I'm Done!" {{action "updateInvitation"}} {{bindAttr disabled="invitation.isInvalid"}}/>
 </script>
 
 <script type="text/x-handlebars" data-template-name="attendee-view">
@@ -45,7 +45,7 @@
 <p>&nbsp;</p>
 
 <script>
-  var invitations = <%= Invitation.all.to_json.html_safe %>;
-  var food_orders = <%= FoodOrder.all.to_json.html_safe %>;
+  var invitations = <%= Invitation.all(:include => :attendees).to_json(:methods => [:attendees]).html_safe %>;
+  var food_orders = <%= FoodOrder.all(:order => :name).to_json.html_safe %>;
 </script>
 <%= javascript_include_tag "jquery", "ember.min", "underscore-min", "rsvp-app" %>

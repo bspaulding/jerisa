@@ -46,11 +46,19 @@ html, body, #wrapper { min-height: 100%; }
 }
 
 /* Forms */
+
 .num-attendees select {
   width: auto;
   padding-right: 38px;
   margin-right: 11px;
 }
+
+.invitation-view ol {
+  font-size: 16px;
+  color: rgb(63,45,108);
+}
+
+.attendee-view.is-destroyed { display: none; }
 
   /*Typography presets
     ------------------*/

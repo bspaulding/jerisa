@@ -11,8 +11,12 @@
 </p>
 
 <p>
-  <b>Attending:</b>
-  <%= @invitation.attending %>
+  <b>Attendees (<%= @invitation.attendees.count %>)</b><br/>
+  <ul>
+    <% @invitation.attendees.each do |attendee| %>
+    <li><%= attendee.name %> would like <%= attendee.food_order.name.downcase %>.</li>
+    <% end %>
+  </ul>
 </p>
 
 <p>
