@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
+
+[ { :name => "Chicken" },
+  { :name => "Steak"   },
+  { :name => "Fish"    }
+].each {|attrs| FoodOrder.create! attrs }
