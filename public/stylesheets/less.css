@@ -253,7 +253,7 @@ px      68    160    252    344    436    */
 
   img#rsvp-badge { width: 150px; height: 150px; }
   #wrapper>header>h1 { padding: 33px 22px; font-size: 64px; background-position: 0px -50px; }
-  article { padding-left: 22px; padding-right: 22px; }
+  article { padding-left: 22px; padding-right: 22px; position: relative; top: -11px; }
   article>h1 { margin: 11px inherit; }
   p { font-size: 16px; padding: 11px 0px; }
   img.wide { height: 262px; }
