@@ -28,6 +28,29 @@ a img {border: 0;}
 
 html, body, #wrapper { min-height: 100%; }
 
+/* Animations */
+
+@-webkit-keyframes shake {
+  0%   { -webkit-transform: translate(  0px,  0px) rotate( 0deg); }
+  33%  { -webkit-transform: translate(-10px,  0px) rotate( 0deg); }
+  66%  { -webkit-transform: translate( 10px,  0px) rotate( 0deg); }
+  100% { -webkit-transform: translate(  0px,  0px) rotate( 0deg); }
+}
+
+.shake {
+  -webkit-animation-name: shake;
+  -webkit-animation-duration: 0.2s;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-iteration-count: 2;
+  -webkit-animation-timing-function: linear;
+}
+
+/* Forms */
+.num-attendees select {
+  width: auto;
+  padding-right: 38px;
+  margin-right: 11px;
+}
 
   /*Typography presets
     ------------------*/
@@ -174,6 +197,9 @@ footer {
   -moz-transition: padding 0.5s ease;
 }
 
+.attendee-view input[type="text"] { width: 64%; }
+.attendee-view select { width: 35%; float: right; }
+
 /* Tablet Layout: 768px.
    Gutters: 24px.
    Outer margins: 28px.
@@ -233,6 +259,9 @@ px      68    160    252    */
   article { padding-left: 34px; padding-right: 34px; }
   p { font-size: 14px; padding: 11px 0px; }
   footer { width: 222px; font-size: 12px; }
+
+  .attendee-view input[type="text"],
+  .attendee-view select { width: 100%; }
 }
 
 

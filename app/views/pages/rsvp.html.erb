@@ -1,0 +1,51 @@
+<h1>RSVP</h1>
+
+<div id="rsvp-app"></div>
+
+<script type="text/x-handlebars" data-template-name="lookup-invitation">
+<form>
+  <div class="field">
+    <label>Please enter your name as it appears on your invitation:</label><br/>
+    <input type="text" placeholder="Mr. and Mrs. John Doe"/>
+  </div>
+
+  <div class="field">
+    <input type="submit" value="Continue &raquo;"/>
+  </div>
+</form>
+</script>
+
+<script type="text/x-handlebars" data-template-name="setup-attendees">
+<h2>{{invitation.name}}</h2>
+<div class="field num-attendees">
+  {{view Ember.Select contentBinding="numAttendeesOptions" selectionBinding="numAttendees"}}
+  <label>
+    {{#if multipleAttendees}}people{{else}}person{{/if}} will be attending.
+  </label>
+</div>
+
+{{#if isAttending}}
+  <label>Guests</label>
+  {{collection contentBinding="invitation.attendees" itemViewClass="RSVP.AttendeeView"}}
+  <input type="button" value="I'm Done!" {{action "updateInvitation"}} {{bindAttr disabled="invitation.isInvalid"}}/>
+{{else}}
+  <h4>Bummer! We wish you could be there!</h4>
+{{/if}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="attendee-view">
+  {{view Ember.TextField valueBinding="content.name" placeholder="Guest Name"}}
+  {{view Ember.Select contentBinding="RSVP.FoodOrdersController.content"
+                      selectionBinding="content.food_order"
+                      optionLabelPath="content.prompt"
+                      optionValuePath="content.id"
+                      prompt="will have the..."}}
+</script>
+
+<p>&nbsp;</p>
+
+<script>
+  var invitations = <%= Invitation.all.to_json.html_safe %>;
+  var food_orders = <%= FoodOrder.all.to_json.html_safe %>;
+</script>
+<%= javascript_include_tag "jquery", "ember.min", "underscore-min", "rsvp-app" %>
