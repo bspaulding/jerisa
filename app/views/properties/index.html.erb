@@ -21,4 +21,4 @@
 <script>
   var properties = <%= Property.all.to_json.html_safe %>;
 </script>
-<%= javascript_include_tag "jquery", "ember.min", "underscore-min", "properties-app" %>
+<%= javascript_include_tag "application", "ember.min", "underscore-min", "properties-app" %>

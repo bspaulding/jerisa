@@ -56,4 +56,4 @@
   var invitations = <%= Invitation.all(:include => :attendees).to_json(:methods => [:attendees]).html_safe %>;
   var food_orders = <%= FoodOrder.all(:order => :name).to_json.html_safe %>;
 </script>
-<%= javascript_include_tag "jquery", "ember.min", "underscore-min", "rsvp-app" %>
+<%= javascript_include_tag "application", "ember.min", "underscore-min", "rsvp-app" %>
