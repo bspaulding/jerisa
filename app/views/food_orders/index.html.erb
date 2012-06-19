@@ -15,7 +15,7 @@
     <tr>
       <td><%= link_to food_order.name, food_order %></td>
       <td><%= food_order.attendees.count %></td>
-      <td><%= food_order.attendees.count / Attendee.count * 100.0 %>%</td>
+      <td><%= Attendee.count == 0 ? '0.0' : food_order.attendees.count / Attendee.count * 100.0 %>%</td>
       <td>
         <ul>
           <li><%= link_to 'Edit', edit_food_order_path(food_order) %></li>
