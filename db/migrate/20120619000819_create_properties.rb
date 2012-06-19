@@ -4,6 +4,7 @@ class CreateProperties < ActiveRecord::Migration
       t.string :name
       t.string :key
       t.string :value
+      t.text :allowed_values
     end
   end
 
