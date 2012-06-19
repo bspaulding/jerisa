@@ -182,6 +182,7 @@ RSVP.LookupInvitationView = Ember.View.extend({
       return i.get('name') === name;
     });
     if ( invitation ) {
+      this.set('error', false);
       invitationView = RSVP.InvitationView.create();
       invitationView.set('invitation', invitation);
       invitationView.set('numAttendees', invitation.get('attendees').get('length'));
@@ -189,10 +190,13 @@ RSVP.LookupInvitationView = Ember.View.extend({
       invitationView.appendTo(RSVP.get('rootElement'));
     } else {
       console.log("couldn't find invitation with that name");
+      this.set('error', true);
       nameInput.removeAttribute('class');
       nameInput.setAttribute('class', 'shake');
     }
   },
+
+  errors: null,
 
   willInsertElement: function() {
     var self = this;
