@@ -47,7 +47,7 @@ class FoodOrdersController < ApplicationController
 
     respond_to do |format|
       if @food_order.save
-        format.html { redirect_to @food_order, notice: 'Food order was successfully created.' }
+        format.html { redirect_to @food_order, notice: "#{FoodOrder.model_name.human.capitalize} was successfully created." }
         format.json { render json: @food_order, status: :created, location: @food_order }
       else
         format.html { render action: "new" }
@@ -63,7 +63,7 @@ class FoodOrdersController < ApplicationController
 
     respond_to do |format|
       if @food_order.update_attributes(params[:food_order])
-        format.html { redirect_to @food_order, notice: 'Food order was successfully updated.' }
+        format.html { redirect_to @food_order, notice: "#{FoodOrder.model_name.human.capitalize} was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

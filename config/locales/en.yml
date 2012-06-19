@@ -6,11 +6,17 @@ en:
   'false': 'No'
   activerecord:
     models:
+      food_order:
+        one: "menu item"
+        many: "menu items"
       guestbook_entry:
         one: "guestbook entry"
         many: "guestbook entries"
     errors:
       models:
+        food_order:
+          one: "menu item"
+          many: "menu items"
         guestbook_entry:
           one: "guestbook entry"
           many: "guestbook entries"
