@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   def check_site_launched
     return if action_name == 'coming_soon'
 
-    if !['invitations', 'properties', 'menu_items'].include?(controller_name) && !Property.check('site-launched', "true")
+    if !['invitations', 'properties', 'food_orders'].include?(controller_name) && !Property.check('site-launched', "true")
       redirect_to :controller => :pages, :action => :coming_soon
     end
   end
