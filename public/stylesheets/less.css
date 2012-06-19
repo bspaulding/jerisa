@@ -162,7 +162,29 @@ ul#guestbook_entries li {
 
 ul#guestbook_entries li>strong { font-style: normal; }
 
-header>nav { width: auto; float: none; text-align: center; height: 46px; padding: 10px 0px; font-family: "coquette", Helvetica, Arial, sans-serif; }
+header>nav {
+  width: auto;
+  float: none;
+  text-align: center;
+  height: 46px;
+  padding: 10px 0px;
+  font-family: "coquette", Helvetica, Arial, sans-serif;
+
+  position: relative; left: -1%; width: 102%;
+}
+
+header>nav:before,
+header>nav:after {
+  content: "";
+  position: absolute; bottom: -5px;
+  width: 0px; height: 0px;
+  z-index: -2;
+
+  border-top: 5px solid #b8860b;
+}
+header>nav:before { left: 0px;  border-left:  9px solid transparent; }
+header>nav:after  { right: 0px; border-right: 9px solid transparent; }
+
 header>nav ul { padding: 0px 48px; height: 40px; }
 header>nav ul li { display: inline; margin-right: 22px; }
 header>nav ul li:last-child { margin-right: 0px; }
@@ -218,6 +240,7 @@ cols    1     2      3      4      5      6      7      8
 px      68    160    252    344    436    528    620    712    */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  img#rsvp-badge { width: 100px; height: 100px; }
   #wrapper {
     width: 768px;
     padding: 48px 0px 60px;
@@ -230,6 +253,10 @@ px      68    160    252    344    436    528    620    712    */
   header>nav ul li a { font-size: 1.6em; padding: 5px 5px; }
   article { padding: 0px 28px; }
   footer { width: 670px; }
+
+  header>nav { width: 100%; left: 0px; }
+  header>nav:before,
+  header>nav:after { display: none; }
 }
 
 
@@ -258,6 +285,9 @@ px      68    160    252    */
     text-align: center;
     margin-right: 0px;
   }
+  header>nav { width: 100%; left: 0px; }
+  header>nav:before,
+  header>nav:after { display: none; }
 
   /* Mobile Images */
   img.left, img.right { float: none; margin: 0 auto; display: block; }
