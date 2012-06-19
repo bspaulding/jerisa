@@ -169,11 +169,11 @@ img { .box_shadow(0px 1px 2px @dark_purple); }
 #wrapper {
   margin: 0px auto;
   padding-top: 0px;
-  padding-bottom: 44px;
+  padding-bottom: 0px;
   position: relative;
   z-index: 1;
 
-  .background_gradient(bottom, @light_purple 11%, @dark_purple 56%);
+  background-image: url('../images/grain2_tileable.png');
 
   .box_shadow(0px 0px 30px rgb(0, 0, 0));
 }
@@ -256,12 +256,6 @@ h6 { font-size: 18px; }
 #error_explanation h5,
 #error_explanation h6 {
   margin: 0px; padding: 0px;
-}
-
-article {
-  background: rgba(255,255,255,0.6);
-  .background_gradient(top left, darken(rgba(255,255,255,0.6), 20%) 30%, rgba(255,255,255,0.6));
-  background-image: url('../images/grain2_tileable.png');
 }
 
 p { color: darken(@dark_purple, 10%); }
