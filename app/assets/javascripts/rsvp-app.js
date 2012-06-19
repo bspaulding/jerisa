@@ -262,11 +262,14 @@ RSVP.InvitationView = Ember.View.extend({
   updateInvitation: function() {
     var invitation = this.get('invitation');
     invitation.set('responded', true);
-    invitation.save(this.updateInvitationSuccess);
+    var self = this;
+    invitation.save(function() {
+      self.updateInvitationSuccess();
+    });
   },
 
   updateInvitationSuccess: function() {
-    var thanksView = RSVP.ThanksView.create({ invitation: this.get('invitation') });
+    var thanksView = RSVP.ThanksView.create();
     this.remove();
     thanksView.appendTo(RSVP.get('rootElement'));
   }
