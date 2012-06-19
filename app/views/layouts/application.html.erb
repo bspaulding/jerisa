@@ -53,7 +53,9 @@
   </script>-->
 </head>
 <body lang="en">
-  <img id="rsvp-badge" src="/images/rsvp-badge.png">
+  <% if Property.check('allow-rsvp', 'true') %>
+    <img id="rsvp-badge" src="/images/rsvp-badge.png">
+  <% end %>
   <input type="button" value="Toggle Grid" id="baseline_grid_toggle" style="display:none;"/>
   <div id="baseline_grid" style="display:none;"></div>
   <div id="bg_wrap_outer"><div id="bg_wrap_inner"></div></div>

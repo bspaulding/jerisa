@@ -1,12 +1,10 @@
 Jerisa::Application.routes.draw do
+
   root :to => 'pages#our_story'
+
   resources :food_orders
-
   resources :invitations
-
-  # The priority is based upon order of creation:
-  # first created -> highest priority.
-
+  resources :properties
   resources :guestbook_entries
 
   match "/guestbook" => 'guestbook_entries#index'

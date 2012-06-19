@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
-  def rsvp; end
+  def rsvp
+    unless Property.check('allow-rsvp', "true")
+      redirect_to :root
+    end
+  end
+
   def our_story; end
   def registry; end
   def contact_us; end
