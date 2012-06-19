@@ -1,6 +1,7 @@
 class Property < ActiveRecord::Base
   SUPPORTED_PROPERTIES = [
-    { :name => "Allow RSVP", :key => 'allow-rsvp', :value => "false", :allowed_values => ["true", "false"] }
+    { :name => "Allow RSVP", :key => 'allow-rsvp', :value => "false", :allowed_values => ["true", "false"] },
+    { :name => "Site Launched", :key => 'site-launched', :value => "false", :allowed_values => ["true", "false"] }
   ]
 
   validates_presence_of [:name, :value, :allowed_values]

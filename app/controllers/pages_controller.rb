@@ -5,6 +5,7 @@ class PagesController < ApplicationController
     end
   end
 
+  def coming_soon; render :layout => false; end
   def our_story; end
   def registry; end
   def contact_us; end
