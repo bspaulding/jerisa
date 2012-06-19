@@ -191,8 +191,10 @@ RSVP.LookupInvitationView = Ember.View.extend({
     } else {
       console.log("couldn't find invitation with that name");
       this.set('error', true);
-      nameInput.removeAttribute('class');
       nameInput.setAttribute('class', 'shake');
+      setTimeout(function() {
+        $(nameInput).removeClass('shake');
+      }, 1000);
     }
   },
 
