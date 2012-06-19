@@ -19,6 +19,7 @@
     <input type="submit" value="Continue &raquo;"/>
   </div>
 </form>
+<p style="font-size: 1.5em"><em><br/>Please <%= link_to "contact us", :controller => :pages, :action => :contact_us %> if you have trouble RSVP'ing.</em></p>
 </script>
 
 <script type="text/x-handlebars" data-template-name="setup-attendees">
@@ -37,6 +38,7 @@
   <h4>Bummer! We wish you could be there!</h4>
 {{/if}}
 <input type="button" value="I'm Done!" {{action "updateInvitation"}} {{bindAttr disabled="invitation.isInvalid"}}/>
+<p style="font-size: 1.5em"><em><br/>Please <%= link_to "contact us", :controller => :pages, :action => :contact_us %> if you have trouble RSVP'ing.</em></p>
 </script>
 
 <script type="text/x-handlebars" data-template-name="attendee-view">
@@ -53,9 +55,8 @@
   <a href="http://www.tkqlhce.com/click-3982900-10876589" class="button" target="_blank" style="margin-top: 33px;">
     View Registry &raquo;
   </a>
+  <p>&nbsp;</p>
 </script>
-
-<p style="font-size: 1.5em"><em><br/>Please <%= link_to "contact us", :controller => :pages, :action => :contact_us %> if you have trouble RSVP'ing.</em></p>
 
 <p>&nbsp;</p>
 
