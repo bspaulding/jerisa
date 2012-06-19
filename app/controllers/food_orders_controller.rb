@@ -1,5 +1,6 @@
 class FoodOrdersController < ApplicationController
   layout 'admin'
+  http_basic_authenticate_with :name => ENV['ADMIN_USERNAME'], :password => ENV['ADMIN_PASSWORD']
 
   # GET /food_orders
   # GET /food_orders.json
