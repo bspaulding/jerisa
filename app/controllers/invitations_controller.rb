@@ -6,6 +6,7 @@ class InvitationsController < ApplicationController
   # GET /invitations.json
   def index
     @invitations = Invitation.all
+    @num_responded = Invitation.where(:responded => true).count
 
     respond_to do |format|
       format.html # index.html.erb

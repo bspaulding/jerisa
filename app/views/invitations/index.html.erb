@@ -34,7 +34,8 @@
     <tr>
       <th></th>
       <th>
-        <%= Invitation.count == 0 ? '0' : (Invitation.where(:responded => true).count / Invitation.count.to_f * 100.0).round(0) %>%
+        <%= @num_responded %> / <%= Invitation.count %>
+        (<%= Invitation.count == 0 ? '0' : (@num_responded / Invitation.count.to_f * 100.0).round(0) %>%)
       </th>
       <th><%= @invitations.map(&:max_attendees).sum %></th>
       <th><%= Attendee.count %></th>
