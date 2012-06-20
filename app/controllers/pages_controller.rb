@@ -10,7 +10,6 @@ class PagesController < ApplicationController
   def registry; end
   def contact_us; end
   def guestbook; end
-  def ceremony; end
-  def reception; end
+  def locations; end
   def accomodations; end
 end

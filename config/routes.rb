@@ -9,7 +9,7 @@ Jerisa::Application.routes.draw do
 
   match "/guestbook" => 'guestbook_entries#index'
 
-  ['coming_soon', 'rsvp', 'our_story', 'registry', 'contact_us', 'ceremony', 'reception', 'accomodations'].each do |page|
+  ['coming_soon', 'rsvp', 'our_story', 'photos', 'registry', 'contact_us', 'locations', 'accomodations'].each do |page|
     match "/#{page}" => "pages##{page}"
   end
 end
