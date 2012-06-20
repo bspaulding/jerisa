@@ -1,29 +1,3 @@
-// Utility
-var css3AnimationSupport = (function(){
-  var div = document.createElement('div'),
-    divStyle = div.style,
-    // you'll probably be better off using a `switch` instead of theses ternary ops
-    support = {
-      transition:
-        divStyle.MozTransition     === ''? {name: 'MozTransition'   , end: 'transitionend'} :
-        // Will ms add a prefix to the transitionend event?
-        (divStyle.MsTransition     === ''? {name: 'MsTransition'    , end: 'msTransitionend'} :
-        (divStyle.WebkitTransition === ''? {name: 'WebkitTransition', end: 'webkitTransitionEnd'} :
-        (divStyle.OTransition      === ''? {name: 'OTransition'     , end: 'oTransitionEnd'} :
-        (divStyle.transition       === ''? {name: 'transition'      , end: 'transitionend'} :
-        false)))),
-      transform:
-        divStyle.MozTransform     === '' ? 'MozTransform'    :
-        (divStyle.MsTransform     === '' ? 'MsTransform'     :
-        (divStyle.WebkitTransform === '' ? 'WebkitTransform' :
-        (divStyle.OTransform      === '' ? 'OTransform'      :
-        (divStyle.transform       === '' ? 'transform'       :
-        false))))
-    };
-  support.transformProp = support.transform.replace(/([A-Z])/g, '-$1').toLowerCase();
-  return support;
-}());
-
 // RSVP App
 Handlebars.registerHelper('equals', function(a,b) { return a === b; });
 
