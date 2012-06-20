@@ -15,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-  <% @invitations.each do |invitation| %>
+  <% @invitations.sort_by(&:name).each do |invitation| %>
     <tr>
       <td><%= link_to invitation.name, invitation %></td>
       <td><%= t(invitation.responded.to_s) %></td>
