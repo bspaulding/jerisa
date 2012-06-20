@@ -116,6 +116,10 @@ body {-webkit-tap-highlight-color: rgb(255,255,158);}
 cols    1     2      3      4      5      6      7      8      9      10
 px      68    160    252    344    436    528    620    712    804    896    */
 
+.thumbnails { margin: 0px auto 44px; }
+.thumbnails img { margin-right: 48px; position: relative; }
+.thumbnails img:nth-child(3n) { margin-right: 0px; }
+
 img#rsvp-badge {
   position: absolute; top: 0px; right: 0px; z-index: 100; margin: 0px; border: none;
   -webkit-box-shadow: none;
@@ -191,7 +195,7 @@ header>nav ul li:last-child { margin-right: 0px; }
 header>nav ul li a,
 header>nav ul li a:visited { font-size: 1.8em; padding: 5px 10px; }
 
-article { padding: 0px 48px 44px; width: auto; }
+article { padding: 0px 48px 44px; width: auto; height: 100%; }
 p { font-size: 18px; line-height: 44px; margin: 0px; padding: 22px 0px; }
 
 img {
@@ -240,6 +244,11 @@ cols    1     2      3      4      5      6      7      8
 px      68    160    252    344    436    528    620    712    */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
+  .thumbnails { margin: 0px auto 88px; }
+  .thumbnails img { margin-right: 56px; margin-left: 56px; }
+  .thumbnails img:nth-child(3n) { margin-right: 56px; }
+  .thumbnails img:nth-child(2n) { margin-right: 0px; margin-left: 28px; }
+
   img#rsvp-badge { width: 100px; height: 100px; }
   #wrapper {
     width: 768px;
@@ -270,6 +279,10 @@ cols    1     2      3
 px      68    160    252    */
 
 @media only screen and (max-width: 767px) {
+  .thumbnails img { margin-right: auto; margin-left: auto; display: block; }
+  .thumbnails img:nth-child(3n) { margin-right: auto; }
+  .thumbnails img:nth-child(2n) { margin-right: auto; margin-left: auto; }
+
   img#rsvp-badge { width: 100px; height: 100px; }
   #wrapper {
     width: 320px;
