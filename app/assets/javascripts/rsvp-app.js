@@ -6,6 +6,11 @@ var RSVP = Ember.Application.create({
   ready: function() {
     this._super();
 
+    if ( $.browser.msie ) {
+      alert("Whoops!\nWe've detected some problems with using Internet Explorer to RSVP.\nPlease use Firefox, Safari or Chrome to ensure RSVP gets to us successfully.\nThanks!")
+      document.location = '/';
+    }
+
     if ( window.invitations ) {
       this.importObjects(window.invitations, RSVP.Invitation, RSVP.InvitationsController);
     }
@@ -19,7 +24,6 @@ var RSVP = Ember.Application.create({
         this.importObjects(window.invitations[i].attendees, RSVP.Attendee, RSVP.InvitationsController.objectAt(i).get('attendees'));
       }
     }
-
 
     var lookupInvitationView = RSVP.LookupInvitationView.create();
     lookupInvitationView.appendTo(this.get('rootElement'));
